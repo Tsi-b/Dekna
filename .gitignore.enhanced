@@ -1,0 +1,281 @@
+# ============================================
+# DEKNA E-Commerce - Enhanced .gitignore
+# React + TypeScript + Vite + Django Backend
+# ============================================
+
+# ============================================
+# Node.js / NPM
+# ============================================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+.npm
+.yarn-integrity
+.pnp
+.pnp.js
+
+# ============================================
+# Build Outputs
+# ============================================
+dist/
+dist-ssr/
+build/
+out/
+.next/
+.nuxt/
+.cache/
+
+# ============================================
+# Vite
+# ============================================
+.vite/
+*.local
+
+# ============================================
+# Environment Variables (CRITICAL)
+# ============================================
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.*.local
+*.env
+backend/.env
+backend/.env.local
+
+# Keep example files
+!.env.example
+!backend/.env.example
+
+# ============================================
+# Python / Django Backend
+# ============================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+pip-log.txt
+pip-delete-this-directory.txt
+.tox/
+.coverage
+.coverage.*
+htmlcov/
+.pytest_cache/
+.mypy_cache/
+.dmypy.json
+dmypy.json
+*.sqlite3
+*.db
+db.sqlite3
+db.sqlite3-journal
+*.log
+
+# Django specific
+*.pot
+*.pyc
+local_settings.py
+media/
+staticfiles/
+static_root/
+
+# ============================================
+# Testing
+# ============================================
+coverage/
+.nyc_output/
+test-results/
+playwright-report/
+playwright/.cache/
+*.spec.js.snap
+.jest/
+
+# ============================================
+# IDEs and Editors
+# ============================================
+# VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# JetBrains IDEs (WebStorm, PyCharm, IntelliJ)
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# Sublime Text
+*.sublime-workspace
+*.sublime-project
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+.\#*
+
+# ============================================
+# Operating System Files
+# ============================================
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# Linux
+*~
+.directory
+.Trash-*
+.nfs*
+
+# ============================================
+# Logs
+# ============================================
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+pnpm-debug.log*
+
+# ============================================
+# Temporary Files
+# ============================================
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+*~
+.cache/
+tmp/
+temp/
+
+# ============================================
+# PWA / Service Worker
+# ============================================
+sw.js
+workbox-*.js
+precache-manifest.*.js
+service-worker.js
+
+# Keep if you want to track generated SW
+!public/sw.js
+!dist/sw.js
+
+# ============================================
+# Package Manager Locks (Optional)
+# ============================================
+# Uncomment if you want to ignore lock files
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+# ============================================
+# Certificates and Keys (CRITICAL)
+# ============================================
+*.pem
+*.key
+*.cert
+*.crt
+*.p12
+*.pfx
+secrets/
+credentials/
+
+# ============================================
+# Cloud & Deployment
+# ============================================
+.vercel
+.netlify
+.firebase/
+.firebaserc
+firebase-debug.log
+.serverless/
+.fusebox/
+
+# ============================================
+# Documentation Build
+# ============================================
+docs/_build/
+site/
+.docusaurus/
+.vuepress/dist/
+
+# ============================================
+# Misc
+# ============================================
+.eslintcache
+.stylelintcache
+*.tsbuildinfo
+.turbo
+.parcel-cache
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+.node_repl_history
+*.tgz
+.yarn-integrity
+.pnp.*
+
+# ============================================
+# Project Specific
+# ============================================
+# Add any project-specific ignores here
+.rovodev/
+test-results/
+playwright/.cache/
+
+# Keep important documentation
+!README.md
+!CHANGELOG.md
+!LICENSE
+!CONTRIBUTING.md

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+  <rect width="200" height="200" rx="44" fill="#DCFCE7"/>
+
+  <!-- Baby Grooming & Health Kit (simple, friendly icon) -->
+  <g fill="none" stroke="#16A34A" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Kit bag/box -->
+    <path d="M56 84h88v64a12 12 0 0 1-12 12H68a12 12 0 0 1-12-12z"/>
+    <path d="M78 84v-10a10 10 0 0 1 10-10h24a10 10 0 0 1 10 10v10"/>
+
+    <!-- Comb (left) -->
+    <path d="M78 108v28"/>
+    <path d="M70 108h16"/>
+    <path d="M72 116h12"/>
+    <path d="M72 124h12"/>
+    <path d="M72 132h12"/>
+
+    <!-- Thermometer (right) -->
+    <path d="M118 104v36"/>
+    <path d="M118 104a8 8 0 0 1 16 0v36a10 10 0 1 1-16 0z"/>
+    <path d="M126 132v8"/>
+  </g>
+</svg>

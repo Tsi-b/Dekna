@@ -1,0 +1,54 @@
+import js from "@eslint/js";
+import globals from "globals";
+import reactHooks from "eslint-plugin-react-hooks";
+import reactRefresh from "eslint-plugin-react-refresh";
+import tseslint from "typescript-eslint";
+import unusedImports from "eslint-plugin-unused-imports";
+
+export default tseslint.config(
+  { ignores: ["dist", ".vite", "node_modules"] },
+  {
+    extends: [js.configs.recommended, ...tseslint.configs.recommended],
+    files: ["src/**/*.{ts,tsx}"],
+    languageOptions: {
+      ecmaVersion: 2020,
+      globals: globals.browser,
+    },
+    plugins: {
+      "react-hooks": reactHooks,
+      "react-refresh": reactRefresh,
+      "unused-imports": unusedImports,
+    },
+    rules: {
+      ...reactHooks.configs.recommended.rules,
+      "react-refresh/only-export-components": [
+        "warn",
+        { allowConstantExport: true },
+      ],
+      // Keep TypeScript's unused-vars rule off (too noisy for this repo).
+      // Use unused-imports for safe autofix of unused imports.
+      "@typescript-eslint/no-unused-vars": "off",
+      "unused-imports/no-unused-imports": "error",
+
+      "@typescript-eslint/no-explicit-any": "off",
+    },
+  },
+  // Vendor-like primitives: allow mixed exports without Fast Refresh warning noise.
+  {
+    files: ["src/components/ui/**/*.{ts,tsx}"],
+    rules: {
+      "react-refresh/only-export-components": "off",
+    },
+  },
+  // Backward-compat re-export wrappers (hooks re-exported from provider modules).
+  {
+    files: [
+      "src/contexts/AuthContext.tsx",
+      "src/contexts/AppContext.tsx",
+      "src/components/theme-provider.tsx",
+    ],
+    rules: {
+      "react-refresh/only-export-components": "off",
+    },
+  }
+);

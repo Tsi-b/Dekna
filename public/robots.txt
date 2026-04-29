@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /checkout/
+Disallow: /account/
+Disallow: /cart/
+Disallow: /auth/
+Disallow: /mock-telebirr-payment
+
+Sitemap: https://dekna.com/sitemap.xml

@@ -1,0 +1,141 @@
+================================================================================
+DEKNA - Mock Order Testing Tools
+================================================================================
+
+✅ CREATED FILES:
+  1. seed_test_orders.py       - Quick script to create 10 test orders
+  2. check_orders.py            - View existing orders and payments
+  3. TESTING_MOCK_ORDERS.md     - Complete testing documentation
+  4. QUICK_REFERENCE.md         - Quick command reference
+  5. TESTING_SUMMARY.txt        - This file
+
+================================================================================
+QUICK START
+================================================================================
+
+1. Get your user ID from Supabase dashboard or browser console
+
+2. Create test orders:
+   cd backend
+   python seed_test_orders.py <your-user-id>
+
+3. Check orders:
+   python check_orders.py <your-user-id>
+
+4. Test payments in the frontend
+
+================================================================================
+WHAT GETS CREATED
+================================================================================
+
+Running seed_test_orders.py creates:
+
+CHAPA ORDERS (5):
+  - 50 ETB (Small order)
+  - 150 ETB (Medium order)
+  - 250 ETB (Standard order)
+  - 500 ETB (Large order)
+  - 1000 ETB (Premium order)
+
+TELEBIRR ORDERS (5):
+  - 75 ETB (Small order)
+  - 200 ETB (Medium order)
+  - 350 ETB (Standard order)
+  - 750 ETB (Large order)
+  - 1500 ETB (Premium order)
+
+All orders start in "created" status and are marked as mock (is_mock=true)
+
+================================================================================
+REQUIREMENTS
+================================================================================
+
+✓ DJANGO_ENV=development in backend/.env
+✓ Valid Supabase credentials configured
+✓ User ID in UUID format (36 characters with 4 hyphens)
+
+================================================================================
+EXAMPLE USAGE
+================================================================================
+
+# Example user ID
+USER_ID="12345678-1234-1234-1234-123456789abc"
+
+# Create test orders
+python seed_test_orders.py $USER_ID
+
+# Check what was created
+python check_orders.py $USER_ID
+
+# Create custom orders
+python manage.py seed_mock_orders --user-id $USER_ID --count 3 --amount 999.00
+
+================================================================================
+TESTING FLOW
+================================================================================
+
+1. CREATE ORDERS
+   → python seed_test_orders.py <user-id>
+   → Creates 10 orders (5 Chapa + 5 Telebirr)
+
+2. VERIFY CREATION
+   → python check_orders.py <user-id>
+   → Shows all orders and their status
+
+3. TEST PAYMENT (Frontend)
+   → Navigate to order in app
+   → Click "Pay Now"
+   → Complete payment flow
+   → Verify status updates
+
+4. CHECK RESULTS
+   → python check_orders.py <user-id>
+   → Verify order status changed to "paid"
+   → Check payment records created
+
+================================================================================
+CLEANUP
+================================================================================
+
+To remove test orders from database:
+
+SQL:
+  DELETE FROM orders WHERE user_id = '<user-id>' AND is_mock = true;
+
+Or delete specific orders:
+  DELETE FROM orders WHERE id = '<order-id>';
+
+================================================================================
+TROUBLESHOOTING
+================================================================================
+
+ERROR: "seed_mock_orders is development-only"
+FIX: Set DJANGO_ENV=development in backend/.env
+
+ERROR: "Invalid user_id UUID"
+FIX: Use proper UUID format (36 chars, 4 hyphens)
+
+ERROR: "Failed to insert mock orders"
+FIX: Check Supabase credentials and connection
+
+ERROR: Orders not showing in frontend
+FIX: Verify user_id matches logged-in user
+
+================================================================================
+DOCUMENTATION
+================================================================================
+
+📖 Full Guide: backend/TESTING_MOCK_ORDERS.md
+📋 Quick Ref: backend/QUICK_REFERENCE.md
+📚 Main README: ../README.md (Testing section)
+
+================================================================================
+PRODUCTION SAFETY
+================================================================================
+
+⚠️  These scripts ONLY work in development mode
+⚠️  DJANGO_ENV must equal "development"
+⚠️  Mock orders have is_mock=true flag
+⚠️  Production should never have mock orders
+
+================================================================================
